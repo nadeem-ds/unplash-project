@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
                         <label>Image Search </label>
                         <input type = 'text' 
                         value={this.state.event}
-                        onChange={(e)=>this.setState({event:e.target.value})}/>
+                        onChange={(e)=>this.setState({event:e.target.value.toUpperCase()})}/>
                     </div>
                 </form>
             </div>
