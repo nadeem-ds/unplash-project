@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+import unplash from '../api/unplash';
 import SearchBar from './SearchBar';
 
 class App extends React.Component {
@@ -7,12 +7,9 @@ class App extends React.Component {
   state = {images: []}
 
   onSearchSubmit= async (term) => {
-    const responce = await axios
-      .get('https://api.unsplash.com/search/photos',{
+    const responce = await unplash.get('/search/photos',{
       params :{query: term},
-      headers:{
-        Authorization : 'Client-ID HdA_qZEge0GDlnDQjikjQICKYxVYM4epG6W_40P64Tg'
-      }
+    
     });
     this.setState({images:responce.data.results});
   }
